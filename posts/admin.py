@@ -5,9 +5,9 @@ from .models import Post
 
 class PostModelAdmin(admin.ModelAdmin):
 	list_display = ["title", "timestamp", "updated"]
-	list_display_links = ["timestamp"]
+	list_display_links = ["title"]
 	list_filter = ["updated", "timestamp"]
-	list_editable = ["title"]
+	#list_editable = ["title"]
 	search_fields = ["title", "content"]
 	class Meta:
 		model = Post
