@@ -20,5 +20,4 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     #url(r'^posts/$', post_home), from posts.views import post_home
     url(r'^posts/', include("posts.urls")),
-
 ]
