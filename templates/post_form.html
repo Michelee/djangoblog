@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{title}}</title>
+</head>
+<body>
+	<h1>{{title}}</h1>
+
+	<form method="Post" action="">
+		{% csrf_token %}
+		{{ form.as_p }}
+		{% if instance %}
+			<input type="submit" value="Edit Post" />
+		{% else %}
+			<input type="submit" value="Create Post" />	
+		{% endif %}
+	</form>
+	
+
+</body>
+</html>
