@@ -14,3 +14,7 @@ following the tutorial _Try Django 1.9_ from _[Coding for Entrepreneurs](https:/
 * [Templates](https://github.com/Michelee/djangoblog/commit/5f644111237d1a9ec6354d3a4dd7d1ac82f5e078)
 
 * [Create & Update](https://github.com/Michelee/djangoblog/commit/4fb7ea5674b26730a77883d84b96b57d2049aaea)
+
+* [Delete]()
+
+* [Templates & Inheritance]()

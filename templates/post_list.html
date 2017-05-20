@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title> {{title}} </title>
-</head>
-<body>
-<h1> {{title}}!</h1>
+{% extends "base.html" %}
+
+{% block content %}
+<a href="create">Create Post</a><br><br>
 
 {% for obj in object_list %}
 
@@ -14,5 +11,4 @@
 {{obj.updated}}<br><br>
 
 {% endfor %}
-</body>
-</html>
+{% endblock %}
