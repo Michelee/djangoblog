@@ -4,11 +4,12 @@
 
 {% block content %}
 
-<a href="/posts">Atrás</a>   <a href="delete">Delete</a><br><br>
+<div class="col-sm-8 col-sm-offset-2">
+	<h1>{{title}} </br>
+	<small>{{ instance.timestamp|timesince }} ago</small></h1>
 
-{{instance.title}} <br>
-{{instance.content}}<br>
-{{instance.timestamp}}<br>
-{{instance.updated}}<br>
+	<a href="/posts">Atrás</a>   <a href="delete">Delete</a><br><br>
 
+	{{ instance.content|linebreaks}}</br>
+</div>
 {% endblock content %}

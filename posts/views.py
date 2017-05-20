@@ -1,15 +1,26 @@
 from django.contrib import messages
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Post
 from .forms import PostForm
 
 def post_home(request):
-	queryset = Post.objects.all()
+	queryset_list = Post.objects.all() #.order_by("-timestamp")
+	paginator = Paginator(queryset_list, 3) #Show 25 posts per page
+	
+	page = request.GET.get('page')
+	try:
+		queryset = paginator.page(page)
+	except PageNotAnInteger:
+		queryset = paginator.page(1)
+	except EmptyPage:
+		queryset = paginator.page(paginator.num_pages)
+
 	context = {
- 		"title": "Posts List",
- 		'object_list': queryset
- 	}
+		"title": "Posts List",
+		'object_list': queryset
+	}
 
 	return render(request, "post_list.html", context)
 

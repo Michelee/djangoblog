@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form method="Post" action="">
-	{% csrf_token %}
-	{{ form.as_p }}
-	{% if instance %}
-		<input type="submit" value="Edit Post" />
-	{% else %}
-		<input type="submit" value="Create Post" />	
-	{% endif %}
-</form>
+<div class="col-sm-8 col-sm-offset-2">
+	<form method="Post" action="">
+		{% csrf_token %}
+		{{ form.as_p }}
+		{% if instance %}
+			<input type="submit" value="Edit Post" />
+		{% else %}
+			<input type="submit" value="Create Post" />	
+		{% endif %}
+	</form>
+</div>
 {% endblock content %}

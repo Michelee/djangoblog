@@ -1,14 +1,47 @@
 {% extends "base.html" %}
 
 {% block content %}
-<a href="create">Create Post</a><br><br>
+<div class="col-sm-8 col-sm-offset-2">
+	<h1>Posts List</h1>
+	<a href="create">Create New Post</a><br><br>
+	
+	{% for obj in object_list %}
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="thumbnail">
+				{# <img src="..." alt="..."> #}
+				<div class="caption">
+					<h3><a href='{{ obj.get_absolute_url }}'>{{obj.title}}</a><br>
+					<small>{% if obj.updated %}
+						{{ obj.updated|timesince }}
+						{% else %}
+						{{ obj.timestamp|timesince }} 
+						{% endif %}
+						ago </small></h3>
+					<p>{{obj.content|linebreaks|truncatechars:120}}</p><br>
+					<p><a href="{{ obj.get_absolute_url }}" class="btn btn-danger" role="button">View</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	{# {% cycle "" "</div><br><div class='row'>" %} #}
+	{% endfor %}
 
-{% for obj in object_list %}
+	<div class="pagination">
+    <span class="step-links">
+        {% if object_list.has_previous %}
+            <a href="?page={{ object_list.previous_page_number }}">previous</a>
+        {% endif %}
 
-<a href='{{ obj.get_absolute_url }}'>{{obj.title}}</a> <br>
-{{obj.content}}<br>
-{{obj.timestamp}}<br>
-{{obj.updated}}<br><br>
+        <span class="current">
+            Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+        </span>
 
-{% endfor %}
+        {% if object_list.has_next %}
+            <a href="?page={{ object_list.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+	
+</div>
 {% endblock %}
