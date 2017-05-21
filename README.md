@@ -19,5 +19,5 @@ following the tutorial _Try Django 1.9_ from _[Coding for Entrepreneurs](https:/
 
 * [Templates Inheritance](https://github.com/Michelee/djangoblog/commit/0b2a0727e0b12f6965a619203562cb4109187042)
 
-* [Pagination]()
+* [Pagination](https://github.com/Michelee/djangoblog/commit/e71a81d3b9980bbe7c0de0b7d15e88beb234574f)
 
