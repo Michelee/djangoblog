@@ -9,7 +9,11 @@
 	<small>{{ instance.timestamp|timesince }} ago</small></h1>
 
 	<a href="/posts">Atrás</a>   <a href="delete">Delete</a><br><br>
-
+	
+	{% if instance.image %}
+	<img class="img-responsive" src="{{ instance.image.url }}"></br>
+	{% endif %}
+	
 	{{ instance.content|linebreaks}}</br>
 </div>
 {% endblock content %}

@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="col-sm-8 col-sm-offset-2">
-	<form method="Post" action="">
+	<form method="Post" action="" enctype="multipart/form-data">
 		{% csrf_token %}
 		{{ form.as_p }}
 		{% if instance %}
