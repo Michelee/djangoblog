@@ -72,3 +72,6 @@ def post_delete(request, id=None):
 	messages.success(request, "Succesfully Deleted")
 	return redirect("posts:home")
 
+
+def my_custom_page_not_found_view(request):
+	return render(request, "404.html")

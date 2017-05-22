@@ -18,6 +18,8 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 
+handler400 = 'posts.views.my_custom_page_not_found_view'
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     #url(r'^posts/$', post_home), from posts.views import post_home
