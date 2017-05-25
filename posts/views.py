@@ -26,13 +26,20 @@ def post_home(request):
 
 def post_create(request):
 	form = PostForm(request.POST or None, request.FILES or None)
-	if form.is_valid():
-		instance = form.save(commit=False)
-		instance.save()
-		messages.success(request, "Succesfully Created")
-		return HttpResponseRedirect(instance.get_absolute_url())
-	elif form.errors:
-		messages.error(request, "Not Succesfully Created")
+	
+	if request.POST: 
+		if form.is_valid():
+			instance = form.save(commit=False)
+			instance.referer = request.session['url']
+			instance.save()
+			messages.success(request, "Succesfully Created")
+			return HttpResponseRedirect(instance.get_absolute_url())
+		elif form.errors:
+			messages.error(request, "Not Succesfully Created")
+	else:
+		referer = request.META.get('HTTP_REFERER')
+		request.session['url'] = referer if referer else 'None'
+	
 	context = {
 		"title": "Create New Note",
 		"form": form
