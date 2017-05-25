@@ -5,15 +5,21 @@
 {% block content %}
 
 <div class="col-sm-8 col-sm-offset-2">
+
+<a href="/posts/create">Create New Post</a><br><br>
 	<h1>{{title}} </br>
 	<small>{{ instance.timestamp|timesince }} ago</small></h1>
 
-	<a href="/posts">Atrás</a>   <a href="delete">Delete</a><br><br>
+	<a href="/posts">Atrás</a>
+
+	<a href="delete">Delete</a><br><br>
 	
 	{% if instance.image %}
 	<img class="img-responsive" src="{{ instance.image.url }}"></br>
 	{% endif %}
 	
+	{{ instance.referer }}</br>
+
 	{{ instance.content|linebreaks}}</br>
 </div>
 {% endblock content %}
